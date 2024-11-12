@@ -39,7 +39,12 @@ const GeometryValues: React.FunctionComponent<Props> = (props) => {
   // render
   //---------------------------------------------------------------------------------------------
   return (
-    <div>{JSON.stringify(geometry, null, 4)}</div>
+    <div>
+      <h4>height: {geometry.height}</h4>
+      <h4>width: {geometry.width}</h4>
+      <h4>x: {geometry.x}</h4>
+      <h4>y: {geometry.y}</h4>
+    </div>
   )
 }
 
