@@ -84,7 +84,7 @@ const Green: React.FunctionComponent<Props> = (props) => {
       title="Video Player"
       frameOptions={frameOptions}
     >
-      <iframe width="480" height="345" src="https://thisvid.com/embed/11583090/"></iframe>
+      <iframe width="400" height="400" src=""></iframe>
     </Frame>
   )
 }

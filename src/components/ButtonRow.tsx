@@ -2,6 +2,7 @@ import Canvas from 'better-frames-1'
 import Pink from '../Pink'
 import Red from '../Red'
 import Green from '../Green'
+import { Geometry } from 'better-frames-1'
 type Props = {
   canvas: Canvas
 }
@@ -13,13 +14,13 @@ const ButtonRow: React.FunctionComponent<Props> = (props) => {
   const { canvas } = props
 
   const button1clicked = () => {
-    canvas.addFrame(Pink, {canvas})
+    canvas.addFrame(Pink, {canvas, height: 400, width: 400})
   }
   const button2clicked = () => {
-    canvas.addFrame(Red, {canvas})
+    canvas.addFrame(Red, {canvas, height: 400, width: 400})
   }
   const button3clicked = () => {
-    canvas.addFrame(Green, {canvas})
+    canvas.addFrame(Green, {canvas, height: 400, width: 400})
   }
 
   //----------------------------------------------------------------------------------------------
