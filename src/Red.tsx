@@ -46,8 +46,9 @@ const Red: React.FunctionComponent<Props> = (props) => {
   ]
 
   const wrapperStyle = styled(canvas.getWrapperStyle())`
-    background-color: red;
+    background-color: lightcoral;
   `
+
   const frameOptions: FrameOptions = {
     wrapperStyle: wrapperStyle
   }
@@ -58,7 +59,7 @@ const Red: React.FunctionComponent<Props> = (props) => {
           canvas={canvas}
           geometry={geometry}
           onGeometryChange={() => {}}
-          title={"red"}
+          title={"Button Counter"}
           frameOptions={frameOptions}
       >
         <>

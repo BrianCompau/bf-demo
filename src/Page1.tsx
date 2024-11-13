@@ -21,6 +21,7 @@ export default function Page1() {
   // styles
   //-----------------------------------------------------------------------------------------------
   const Body = styled.div`
+    background-color: lightblue;
     display: flex;
     flex-direction: column;
     height: 100vh;

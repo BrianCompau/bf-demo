@@ -39,6 +39,7 @@ const Pink: React.FunctionComponent<Props> = (props) => {
 
   const buttonStyle = styled(canvas.getButtonStyle())`
     &:hover {
+      color: purple;
       background-color: pink;
     }
   `

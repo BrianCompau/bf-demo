@@ -14,13 +14,13 @@ const ButtonRow: React.FunctionComponent<Props> = (props) => {
   const { canvas } = props
 
   const button1clicked = () => {
-    canvas.addFrame(Pink, {canvas, height: 400, width: 400})
+    canvas.addFrame(Pink, {canvas, height: 400, width: 400, x: 50, y: 50})
   }
   const button2clicked = () => {
-    canvas.addFrame(Red, {canvas, height: 400, width: 400})
+    canvas.addFrame(Red, {canvas, height: 400, width: 400, x: 50, y: 50})
   }
   const button3clicked = () => {
-    canvas.addFrame(Green, {canvas, height: 400, width: 400})
+    canvas.addFrame(Green, {canvas, height: 400, width: 400, x: 50, y: 50})
   }
 
   //----------------------------------------------------------------------------------------------
@@ -28,9 +28,10 @@ const ButtonRow: React.FunctionComponent<Props> = (props) => {
   //----------------------------------------------------------------------------------------------
   return (
   <div>
-    <button className="button" onClick={button1clicked} ></button>
-    <button className="button" onClick={button2clicked} ></button>
-    <button className="button" onClick={button3clicked} ></button>
+    <h1></h1>
+    <button className="button pink" onClick={button1clicked} >Geometry</button>
+    <button className="button red" onClick={button2clicked} >Button Counter</button>
+    <button className="button green" onClick={button3clicked} >Video Player</button>
   </div>
   )
 }

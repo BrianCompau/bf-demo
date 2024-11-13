@@ -52,6 +52,7 @@ const Green: React.FunctionComponent<Props> = (props) => {
 
   const buttonStyle = styled(canvas.getButtonStyle())`
     &:hover {
+      color: darkgreen;
       background-color: lightgreen;
     }
   `
@@ -81,7 +82,7 @@ const Green: React.FunctionComponent<Props> = (props) => {
       canvas={canvas}
       geometry={geometry}
       onGeometryChange={resize}
-      title="Video Select"
+      title="Video Player"
       frameOptions={frameOptions}
     >
       <button onClick={playVideo}>surf</button>
