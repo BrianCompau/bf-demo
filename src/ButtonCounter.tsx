@@ -10,7 +10,7 @@ type Props = {
   state: any
 }
 var counter = 0
-const Red: React.FunctionComponent<Props> = (props) => {
+const ButtonCounter: React.FunctionComponent<Props> = (props) => {
   const { canvas, geometry, id } = props;
   const close = () => {
     counter = 0
@@ -69,4 +69,4 @@ const Red: React.FunctionComponent<Props> = (props) => {
   )
 }
 
-export default Red;
+export default ButtonCounter;

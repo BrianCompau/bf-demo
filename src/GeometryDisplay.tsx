@@ -11,7 +11,7 @@ type Props = {
   state: any
 }
 
-const Pink: React.FunctionComponent<Props> = (props) => {
+const GeometryDisplay: React.FunctionComponent<Props> = (props) => {
   const { canvas, id } = props;
   let { geometry } = props
   const close = () => {
@@ -77,4 +77,4 @@ const Pink: React.FunctionComponent<Props> = (props) => {
   )
 }
 
-export default Pink;
+export default GeometryDisplay;

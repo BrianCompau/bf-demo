@@ -1,26 +1,28 @@
 import { BsX } from 'react-icons/bs';
 import Canvas, { Geometry, Frame, Button, FrameOptions } from "better-frames-1"
 import styled from 'styled-components';
+import VideoSelector from './VideoSelector'
+import { useReducer } from 'react';
 interface Props {
   canvas: Canvas
   geometry: Geometry
   id: number
   state: any
-  src: string
 }
-
+let src = ''
 //-----------------------------------------------------------------------------------------------
 // MovieDemo
 //-----------------------------------------------------------------------------------------------
 const Green: React.FunctionComponent<Props> = (props) => {
-  const {canvas, id, src} = props
+  const {canvas, id} = props
   let {geometry} = props
   const {removeFrame} = canvas
-
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
   //-----------------------------------------------------------------------------------------------
   // cancel
   //-----------------------------------------------------------------------------------------------
   const cancel = (): void => {
+    src = ''
     removeFrame(id)
   }
 
@@ -52,6 +54,7 @@ const Green: React.FunctionComponent<Props> = (props) => {
 
   const buttonStyle = styled(canvas.getButtonStyle())`
     &:hover {
+      color: darkgreen;
       background-color: lightgreen;
     }
   `
@@ -66,15 +69,25 @@ const Green: React.FunctionComponent<Props> = (props) => {
   //----------------------------------------------------------------------------------------------
   const resize = (newGeometry: Geometry): void => {
     geometry = JSON.parse(JSON.stringify(newGeometry))
+    console.log(src)
+  }
+
+  const setSrc = (newSrc: string): void => {
+    src = newSrc
+  }
+
+  const clearSrc = (): void => {
+    src = ''
+    forceUpdate()
+  }
+
+  const playVideo = (): void => {
+    canvas.addFrame(VideoSelector, { canvas, height: 200, width: 200, setSrc: setSrc })
   }
 
   //----------------------------------------------------------------------------------------------
   // render
   //----------------------------------------------------------------------------------------------
-  const iframeStyle = {
-    height: '100%',
-    width: '100%'
-  }
   return (
     <Frame
       buttons={getButtons()}
@@ -84,9 +97,13 @@ const Green: React.FunctionComponent<Props> = (props) => {
       title="Video Player"
       frameOptions={frameOptions}
     >
-      <iframe width="400" height="400" src=""></iframe>
+      <div className='centered'>
+        <button className='button darkgreen' onClick={playVideo}>Select Video</button>
+        <button className='button darkgreen' onClick={clearSrc}>Clear Video</button>
+        <iframe height='200px' width='356px' src={src}></iframe> <br/><br/>
+      </div>
     </Frame>
   )
 }
-
+//        <iframe src={src}></iframe> <br/><br/>
 export default Green;

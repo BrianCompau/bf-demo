@@ -1,7 +1,7 @@
 import Canvas from 'better-frames-1'
-import Pink from '../Pink'
-import Red from '../Red'
-import Green from '../Green'
+import GeometryDisplay from '../GeometryDisplay'
+import ButtonCounter from '../ButtonCounter'
+import VideoPlayer from '../VideoPlayer'
 import { Geometry } from 'better-frames-1'
 type Props = {
   canvas: Canvas
@@ -14,13 +14,13 @@ const ButtonRow: React.FunctionComponent<Props> = (props) => {
   const { canvas } = props
 
   const button1clicked = () => {
-    canvas.addFrame(Pink, {canvas, height: 400, width: 400, x: 50, y: 50})
+    canvas.addFrame(GeometryDisplay, {canvas, height: 400, width: 400, x: 50, y: 50})
   }
   const button2clicked = () => {
-    canvas.addFrame(Red, {canvas, height: 400, width: 400, x: 50, y: 50})
+    canvas.addFrame(ButtonCounter, {canvas, height: 400, width: 400, x: 50, y: 50})
   }
   const button3clicked = () => {
-    canvas.addFrame(Green, {canvas, height: 400, width: 400, x: 50, y: 50})
+    canvas.addFrame(VideoPlayer, {canvas, height: 400, width: 400, x: 50, y: 50})
   }
 
   //----------------------------------------------------------------------------------------------

@@ -1,19 +1,19 @@
 import { BsX } from 'react-icons/bs';
 import Canvas, { Geometry, Frame, Button, FrameOptions } from "better-frames-1"
 import styled from 'styled-components';
-import VideoPlayer from './VideoPlayer'
 interface Props {
   canvas: Canvas
   geometry: Geometry
   id: number
   state: any
+  setSrc: any
 }
 
 //-----------------------------------------------------------------------------------------------
 // MovieDemo
 //-----------------------------------------------------------------------------------------------
 const Green: React.FunctionComponent<Props> = (props) => {
-  const {canvas, id} = props
+  const {canvas, id, setSrc} = props
   let {geometry} = props
   const {removeFrame} = canvas
 
@@ -52,7 +52,6 @@ const Green: React.FunctionComponent<Props> = (props) => {
 
   const buttonStyle = styled(canvas.getButtonStyle())`
     &:hover {
-      color: darkgreen;
       background-color: lightgreen;
     }
   `
@@ -69,8 +68,10 @@ const Green: React.FunctionComponent<Props> = (props) => {
     geometry = JSON.parse(JSON.stringify(newGeometry))
   }
 
-  const playVideo = (): void => {
-    canvas.addFrame(VideoPlayer, { canvas, src: "https://media.istockphoto.com/id/1364149381/video/surfer-rides-the-powerful-ocean-wave-at-sunset.mp4?s=mp4-640x640-is&k=20&c=toE_iDWh0xnYq6OwtA_x7mS7JxDAu_Jko4kqIB0Tjng=" })
+  const returnSrc = (src: string): void => {
+    setSrc(src)
+    
+    //removeFrame(id)
   }
 
   //----------------------------------------------------------------------------------------------
@@ -82,10 +83,13 @@ const Green: React.FunctionComponent<Props> = (props) => {
       canvas={canvas}
       geometry={geometry}
       onGeometryChange={resize}
-      title="Video Player"
+      title="Video Selector"
       frameOptions={frameOptions}
     >
-      <button onClick={playVideo}>surf</button>
+      <div>
+        <button className='bigbutton darkgreen' onClick={() => {returnSrc('https://media.istockphoto.com/id/1364149381/video/surfer-rides-the-powerful-ocean-wave-at-sunset.mp4?s=mp4-640x640-is&k=20&c=toE_iDWh0xnYq6OwtA_x7mS7JxDAu_Jko4kqIB0Tjng=')}}>Surfing</button>
+        <button className='bigbutton darkgreen' onClick={() => {returnSrc('https://media.istockphoto.com/id/2050492785/video/fit-woman-hikes-through-picturesque-mountain-landscapes.mp4?s=mp4-640x640-is&k=20&c=0VAjzOBuu-8viPL9-W3XkqF68qTsjl3O9gfdZIjHHrQ=')}}>Hiking</button>
+      </div>
     </Frame>
   )
 }
